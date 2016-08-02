@@ -1,0 +1,15 @@
+<div class="scrollable" back-img="{{WidgetItem.item.data.backgroundImage}}" ng-controller="WidgetItemCtrl as WidgetItem">
+        <div ng-if="WidgetItem.placeInfo.data.design.itemDetailsLayout"
+             ng-include="'templates/layouts/' + WidgetItem.placeInfo.data.design.itemDetailsLayout+ '.html'">
+        </div>
+</div>
+<script>
+    function openInMap(lat, lng) {
+        window.buildfire.getContext(function(err,context){
+            if(context && context.device && context.device.platform=='ios')
+                window.buildfire.navigation.openWindow('maps://maps.google.com/maps?daddr='  + lat + ',' + lng,'_system');
+            else
+                window.buildfire.navigation.openWindow('http://maps.google.com/maps?daddr=' + lat + ',' + lng,'_system');
+        });
+    }
+</script>

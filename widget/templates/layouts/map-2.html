@@ -1,0 +1,32 @@
+<div class="holder padding-zero has-bottom map-layout2 height-hundred-pc">
+    <div class="places-plugin">
+        <div class="plugin-banner clearfix">
+            <div ng-class="{'fix-map-layout2-info-bar':WidgetSections.selectedItem && WidgetSections.selectedItem.data.images.length == 0}"
+                 class="plugin-slider text-center has-info-bar-double">
+                <div ng-show="WidgetSections.selectedItem.data.images.length" class="plugin-slide">
+                    <div id="mapCarousel" map-build-fire-carousel="" class="plugin-slider"></div>
+                </div>
+            </div>
+            <div ng-if="WidgetSections.selectedItem" class="fix-map-layout2-info-bar info-bar titleBarBackgroundTheme padding-top-five padding-bottom-five" style="min-height: 45px;">
+                <div class="col-xs-9 pull-left">
+                    <a ng-click="WidgetSections.showItemDetails((WidgetSections.selectedItem.data.sections[0]||'allitems'),WidgetSections.selectedItem.id)" class="margin-bottom-zero titleBarTextAndIcons">{{WidgetSections.selectedItem.data.itemTitle}}</a>
+                    <p class="margin-bottom-zero ellipsis titleBarTextAndIcons">{{WidgetSections.selectedItem.data.summary}}</p>
+                </div>
+                <div class="col-xs-3 padding-left-zero pull-right text-right margin-top-five">
+                    <span ng-click="WidgetSections.openInMap()" class="icon icon-location location-circle primaryTheme background-white"
+                            ></span><br>
+                    <span class="font-size-small titleBarTextAndIcons">{{WidgetSections.selectedItemDistance}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="location-map">
+            <div class="map-holder"
+                 data-ng-attr-style="{{ WidgetSections.selectedItem && WidgetSections.selectedItem.data.images.length && 'top: ' + (9 * deviceWidth / 16) + 'px !important' || '' }}"
+                 ng-class="{'fix-map-layout2-top':WidgetSections.selectedItem && WidgetSections.selectedItem.data.images.length == 0,'fix-map-layout2-top-with-carousel':WidgetSections.selectedItem && WidgetSections.selectedItem.data.images.length}">
+                <div google-map class="google-map-fix" location-data="WidgetSections.locationData"
+                     marker-callback="WidgetSections.selectedMarker" filter="distanceSlider"
+                     filterUnapplied="WidgetSections.filterUnapplied"></div>
+            </div>
+        </div>
+    </div>
+</div>
