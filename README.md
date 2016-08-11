@@ -2,6 +2,9 @@
 
 The Places plugin allows you to include a list and GPS map directory of categorized entries with pictures, contact information, instant directions, and even embed images and videos
 
+###Plugin overview
+
+http://support.appdocumentation.com/knowledge-base/places-plugin-tutorial
 
 ##How to run and test
 ###Prerequisite are node.js,bower,npm,karma, karma-coverage
